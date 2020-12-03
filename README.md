@@ -8,8 +8,9 @@ go build
 ```
 
 ## Example
+
+> ## 1. Fetching block
 ``` shell
-# Fetching block
 # docker exec -i -t <your_peer_container> peer channel fetch <newest|oldest|config|(number)> [outputfile] [flags]
 
 docker exec -i -t peer0.org1.example.com peer channel fetch newest dc_newest.block -c dc
@@ -20,13 +21,14 @@ docker exec -i -t peer0.org1.example.com peer channel fetch newest dc_newest.blo
 # 2020-12-03 07:55:16.214 UTC [cli.common] readBlock -> INFO 002 Received block: 1
 ```
 
+> ## 2. Copy block to host
 ``` shell
-# Copy block to host
 # docker cp <your_peer_container>:/<block_path> ./
 
 docker cp peer0.org1.example.com:/opt/gopath/src/github.com/hyperledger/fabric/peer/dc_newest.block ./
 ```
 
+> ## 3. Get block info
 ``` shell
 # Get block info
 # ./fabric-block-parser info <block_name>
@@ -65,6 +67,7 @@ docker cp peer0.org1.example.com:/opt/gopath/src/github.com/hyperledger/fabric/p
 
 ```
 
+> ## 4. Get block hash
 ``` shell
 # Get block hash
 # ./fabric-block-parser hash <block_name>
